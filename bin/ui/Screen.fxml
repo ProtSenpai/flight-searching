@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ScreenController">
+   <children>
+      <MenuBar layoutX="276.0" layoutY="2.0" prefHeight="25.0" prefWidth="324.0">
+        <menus>
+          <Menu fx:id="order" disable="true" mnemonicParsing="false" text="Order flights">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#byDate" text="By Date" />
+                  <MenuItem mnemonicParsing="false" onAction="#byAirline" text="By Airline" />
+                  <MenuItem mnemonicParsing="false" onAction="#byNumber" text="By Number" />
+                  <MenuItem mnemonicParsing="false" onAction="#byCity" text="By City" />
+                  <MenuItem mnemonicParsing="false" onAction="#byDoor" text="By Door" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="14.0" layoutY="6.0" text="Number of Flights:" />
+      <TextField fx:id="maxFlights" layoutX="119.0" layoutY="1.0" prefHeight="9.0" prefWidth="76.0" />
+      <Button fx:id="generate" layoutX="201.0" layoutY="1.0" mnemonicParsing="false" onAction="#generate" text="Generate" />
+      <HBox layoutY="42.0" prefHeight="319.0" prefWidth="600.0">
+         <children>
+            <VBox fx:id="airlineCl" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="airline" text="Airline">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="numberCl" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="number" text="Number">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="cityCl" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="city" text="City">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="dateCl" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="date" text="Date">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="hourCl" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="hour" text="Hour">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="doorCl" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="door" text="Door">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutY="348.0" prefHeight="39.0" prefWidth="600.0">
+         <children>
+            <Label text="Search By:  " />
+            <MenuButton fx:id="searchType" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#airlineSearch" text="Airline" />
+                  <MenuItem mnemonicParsing="false" onAction="#numberSearch" text="Number" />
+                  <MenuItem mnemonicParsing="false" onAction="#citySearch" text="City" />
+                  <MenuItem mnemonicParsing="false" onAction="#dateSearch" text="Date" />
+                  <MenuItem mnemonicParsing="false" onAction="#hourSearch" text="Hour" />
+                <MenuItem mnemonicParsing="false" onAction="#doorSearch" text="Door" />
+              </items>
+            </MenuButton>
+            <TextField fx:id="searchText" />
+            <Button fx:id="search" disable="true" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="61.0" text="Search" />
+            <Pane prefHeight="52.0" prefWidth="71.0" />
+            <Button mnemonicParsing="false" onAction="#previus" text="&lt;" />
+            <Pane prefHeight="52.0" prefWidth="15.0" />
+            <Label fx:id="page" text="1" />
+            <Pane prefHeight="52.0" prefWidth="15.0" />
+            <Button mnemonicParsing="false" onAction="#next" text="&gt;" />
+         </children>
+      </HBox>
+      <Label layoutX="10.0" layoutY="404.0" text="Type of Search" />
+      <MenuButton fx:id="typeS" layoutX="102.0" layoutY="400.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#byLineal" text="Lineal" />
+          <MenuItem mnemonicParsing="false" onAction="#byBinary" text="Binary" />
+        </items>
+      </MenuButton>
+   </children>
+</Pane>
