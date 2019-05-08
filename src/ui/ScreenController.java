@@ -87,6 +87,8 @@ public class ScreenController {
     
     private Flight[] flights;
     
+    private Flight first;
+    
     private int type;
     
     private int typeSearch;
@@ -155,7 +157,33 @@ public class ScreenController {
 		Arrays.sort(flights, flightComparator);
     	fill();
     	
+    	Random rNumber = new Random();
+		String number = rNumber.nextInt(9999)+"";
+		
+		Random rCity = new Random();
+		int option = rCity.nextInt(5)+1;
+    	
+		Flight fl = new Flight(createDate(), createHour(), createAirline(), number, createCity(option), option);
+
+    	
+    	if(first == null) {
+			first = fl;
+		}else {
+			Flight current = first;
+			while(current.getNext() != null) {
+				current = current.getNext();
+			}
+			current.setNext(fl);
+		}
+    	
     	order.setDisable(false);
+    	
+    	Alert info = new Alert(AlertType.INFORMATION);
+    	info.setTitle("Seaching Flights");
+    	info.setHeaderText(null);
+    	info.initStyle(StageStyle.UTILITY);
+    	info.setContentText("Se crea la lista enlazada pero lo demás sigue igual, te quiero Sara <3 JAJAJAJAJA");
+    	info.show();
     }
     
     public void fill() {
